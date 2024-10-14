@@ -10,6 +10,7 @@ use App\Http\Controllers\CriterioController;
 
 
 Route::get("/rubricas/{id}/criterios", [CriterioController::class,"obtenerPorRubrica"]);
+Route::get("/criterios/{id}/atributos", [AtributoController::class,"obtenerPorCriterio"]);
 Route::resource('/competencias',CompetenciaController::class);
 Route::resource('/rubricas',RubricaController::class);
 Route::resource('/criterios',CriterioController::class);

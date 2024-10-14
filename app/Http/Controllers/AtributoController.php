@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Atributo;
 use App\Http\Requests\StoreAtributoRequest;
 use App\Http\Requests\UpdateAtributoRequest;
+use Illuminate\Http\Request;
 
 class AtributoController extends Controller
 {
@@ -13,9 +14,14 @@ class AtributoController extends Controller
      */
     public function index()
     {
-        //
+        return Atributo::all();
     }
 
+
+    public function obtenerPorCriterio($id)
+    {
+        return Atributo::where("criterio_id", "=", $id)->get();
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -27,9 +33,14 @@ class AtributoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreAtributoRequest $request)
+    public function store(Request $request)
     {
-        //
+        $atributo=  new Atributo();
+        $atributo->nombre = $request->nombre;
+        $atributo->minimo = 1;
+        $atributo->maximo = 5;
+        $atributo->criterio_id = $request->criterio_id;
+        $atributo->save();
     }
 
     /**

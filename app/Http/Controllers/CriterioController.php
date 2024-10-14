@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Criterio;
 use App\Http\Requests\StoreCriterioRequest;
 use App\Http\Requests\UpdateCriterioRequest;
+use Illuminate\Http\Request;
 
 class CriterioController extends Controller
 {
@@ -34,9 +35,13 @@ class CriterioController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCriterioRequest $request)
+    public function store(Request $request)
     {
         //
+        $criterio= new Criterio();
+        $criterio->nombre = $request->nombre;
+        $criterio->rubrica_id = $request->rubrica_id;
+        $criterio->save();
     }
 
     /**
