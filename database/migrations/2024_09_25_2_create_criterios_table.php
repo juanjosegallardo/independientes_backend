@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Rubrica;
 return new class extends Migration
 {
     /**
@@ -12,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('criterios', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(Rubrica::class)->constrained();
             $table->string("nombre");
             $table->timestamps();
         });

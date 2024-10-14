@@ -11,6 +11,13 @@ class CriterioController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+    public function obtenerPorRubrica($id)
+    {
+        return Criterio::where("rubrica_id","=", $id)->get();
+
+    }
+
     public function index()
     {
         //
