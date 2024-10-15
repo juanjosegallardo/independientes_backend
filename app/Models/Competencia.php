@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Competencia extends Model
 {
     use HasFactory;
+
+
+    public function rubrica()
+    {
+        return $this->belongsTo("App\Models\Rubrica", "rubrica_id");
+    }
 }

@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Criterio extends Model
 {
     use HasFactory;
+    
+    public function atributos()
+    {
+        return $this->hasMany("App\Models\Atributo");
+    }
 }

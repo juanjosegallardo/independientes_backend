@@ -42,9 +42,13 @@ class CompetenciaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Competencia $competencia)
+    public function show( $id)
     {
-        //
+        return Competencia::with(["Rubrica"=>function($q){
+            $q->with(["criterios"=>function($q){
+                $q->with("atributos");
+            }]);
+        }])->find($id);
     }
 
     /**

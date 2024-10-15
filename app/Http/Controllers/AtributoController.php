@@ -48,7 +48,7 @@ class AtributoController extends Controller
      */
     public function show(Atributo $atributo)
     {
-        //
+        
     }
 
     /**

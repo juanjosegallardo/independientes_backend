@@ -9,4 +9,9 @@ class Evaluacion extends Model
 {
     use HasFactory;
     protected $table= "evaluaciones";
+    
+    public function Rubrica()
+    {
+        return $this->hasOne("App\Models\Rubrica");
+    }
 }
