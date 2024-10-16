@@ -13,9 +13,9 @@ class EvaluacionController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function obtenerPorCompetencia($id)
     {
-        return Evaluacion::all();
+        return Evaluacion::where("competencia_id", "=", $id)->orderBy("puntuacion_final", "desc")->get();
     }
 
     /**
@@ -42,8 +42,7 @@ class EvaluacionController extends Controller
             $evaluacion->anio = $request->anio;
             $evaluacion->puntuacion_final = $request->puntuacion_final;
             $evaluacion->save();
-        
-            // Asignamos las calificaciones
+    
             $calificaciones = $request->calificaciones;
             foreach ($calificaciones as $calificacion) {
                 $evaluacion->atributos()->attach(
