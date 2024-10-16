@@ -51,6 +51,13 @@ class CompetenciaController extends Controller
         }])->find($id);
     }
 
+    public function obtenerEvaluaciones( $id)
+    {
+        return Competencia::with(["evaluaciones"=>function($q){
+            $q->orderBy("puntuacion_final", "desc");
+        }])->find($id);
+    }
+
     /**
      * Show the form for editing the specified resource.
      */

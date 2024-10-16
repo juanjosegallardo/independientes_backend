@@ -14,4 +14,9 @@ class Competencia extends Model
     {
         return $this->belongsTo("App\Models\Rubrica", "rubrica_id");
     }
+
+    public function evaluaciones()
+    {
+        return $this->hasMany("App\Models\Evaluacion", );
+    }
 }

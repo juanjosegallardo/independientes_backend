@@ -17,7 +17,7 @@ Route::resource('/rubricas',RubricaController::class);
 Route::resource('/criterios',CriterioController::class);
 Route::resource('/atributos',AtributoController::class);
 Route::resource('/evaluaciones',EvaluacionController::class);
-Route::get('/competencias/{id}/evaluaciones',[EvaluacionController::class,"obtenerPorCompetencia"]);
+Route::get('/competencias/{id}/evaluaciones',[CompetenciaController::class,"obtenerEvaluaciones"]);
 
 
 
