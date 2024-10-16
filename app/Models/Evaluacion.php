@@ -14,4 +14,8 @@ class Evaluacion extends Model
     {
         return $this->hasOne("App\Models\Rubrica");
     }
+    public function Atributos()
+    {
+        return $this->belongsToMany("App\Models\Atributo", "atributo_evaluacion");
+    }
 }

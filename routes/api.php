@@ -6,6 +6,7 @@ use App\Http\Controllers\CompetenciaController;
 use App\Http\Controllers\RubricaController;
 use App\Http\Controllers\AtributoController;
 use App\Http\Controllers\CriterioController;
+use App\Http\Controllers\EvaluacionController;
 
 
 
@@ -15,5 +16,8 @@ Route::resource('/competencias',CompetenciaController::class);
 Route::resource('/rubricas',RubricaController::class);
 Route::resource('/criterios',CriterioController::class);
 Route::resource('/atributos',AtributoController::class);
+Route::resource('/evaluaciones',EvaluacionController::class);
+
+
 
 
