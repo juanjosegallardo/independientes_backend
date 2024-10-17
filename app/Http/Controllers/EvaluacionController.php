@@ -85,8 +85,10 @@ class EvaluacionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Evaluacion $evaluacion)
+    public function destroy($id)
     {
-        //
+        $evaluacion = Evaluacion::findOrFail($id);
+        $evaluacion->atributos()->detach();
+        $evaluacion->delete();
     }
 }
