@@ -3,22 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Evaluacion;
 use PDF;
 
 class PDFController extends Controller
 {
-    public function generarPDF()
+    public function generarPDF($id)
     {
-        // Datos que quieres enviar al PDF
+        
+
         $data = [
             'title' => 'Bienvenido a PDF con Laravel',
-            'date' => date('m/d/Y')
+            'date' => date('m/d/Y'),
+            'evaluacion'=>Evaluacion::with("atributos")->find($id)->toArray()
         ];
+        //http://localhost:8000/api/pdfs/evaluaciones/13
 
-        // Cargar la vista y pasarle los datos
         $pdf = PDF::loadView('evaluacion', $data);
-
-        // Descargar el PDF con nombre 'mi_archivo.pdf'
-        return $pdf->download('mi_archivo.pdf');
+        return $pdf->stream('mi_archivo.pdf');
     }
 }

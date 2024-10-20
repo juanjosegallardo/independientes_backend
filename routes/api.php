@@ -9,7 +9,7 @@ use App\Http\Controllers\CriterioController;
 use App\Http\Controllers\EvaluacionController;
 use App\Http\Controllers\PDFController;
 
-Route::get('pdfs/evaluaciones/{id}', [PDFController::class, 'generarPDF']);
+Route::get('/pdfs/evaluaciones/{id}', [PDFController::class, 'generarPDF']);
 Route::get("/rubricas/{id}/criterios", [CriterioController::class,"obtenerPorRubrica"]);
 Route::get("/criterios/{id}/atributos", [AtributoController::class,"obtenerPorCriterio"]);
 Route::resource('/competencias',CompetenciaController::class);

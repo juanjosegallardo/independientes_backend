@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Competencia;
+use App\Models\User;
 
 return new class extends Migration
 {
@@ -20,6 +21,7 @@ return new class extends Migration
             $table->string("anio");
             $table->string("club");
             $table->integer("puntuacion_final");
+            $table->foreignIdFor(User::class)->constrained();
             $table->foreignIdFor(Competencia::class)->constrained();
             $table->timestamps();
         });

@@ -16,6 +16,6 @@ class Evaluacion extends Model
     }
     public function Atributos()
     {
-        return $this->belongsToMany("App\Models\Atributo", "atributo_evaluacion");
+        return $this->belongsToMany("App\Models\Atributo", "atributo_evaluacion")->withPivot("calificacion");
     }
 }
