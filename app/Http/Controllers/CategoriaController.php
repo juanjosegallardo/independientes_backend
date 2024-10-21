@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categoria;
 use App\Http\Requests\StoreCategoriaRequest;
 use App\Http\Requests\UpdateCategoriaRequest;
+use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
 {
@@ -27,11 +28,21 @@ class CategoriaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCategoriaRequest $request)
+    public function store(Request $request)
     {
-        //
+        $categoria = new Categoria();
+        $categoria->nombre = $request->nombre;
+        $categoria->puntaje_minimo= $request->puntaje_minimo;
+        $categoria->puntaje_maximo =$request->puntaje_maximo;
+        $categoria->rubrica_id = $request->rubrica_id;
+        $categoria->save();
     }
 
+    public function obtenerPorRubrica($id)
+    {
+        return Categoria::where("rubrica_id","=", $id)->get();
+
+    }
     /**
      * Display the specified resource.
      */
@@ -59,8 +70,9 @@ class CategoriaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Categoria $categoria)
+    public function destroy($id)
     {
-        //
+        $categoria=Categoria::find($id);
+        $categoria->delete();
     }
 }
