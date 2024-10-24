@@ -22,6 +22,9 @@ Route::resource('/evaluaciones',EvaluacionController::class);
 Route::resource('/categorias',CategoriaController::class);
 Route::get('/competencias/{id}/evaluaciones',[CompetenciaController::class,"obtenerEvaluaciones"]);
 
+Route::post('login', [App\Http\Controllers\AuthController::class, 'login']);
+Route::post('logout', [App\Http\Controllers\AuthController::class, 'logout']);
+Route::get('me', [App\Http\Controllers\AuthController::class, 'getUser'])->middleware('auth:api');
 
 
 
