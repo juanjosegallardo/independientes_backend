@@ -15,7 +15,8 @@ class EvaluacionController extends Controller
      */
     public function obtenerPorCompetencia($id)
     {
-        return Evaluacion::where("competencia_id", "=", $id)->orderBy("puntuacion_final", "desc")->get();
+        return Evaluacion::where("competencia_id", "=", $id)
+        ->orderBy("puntuacion_final", "desc")->get();
     }
 
     /**
