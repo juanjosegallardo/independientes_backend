@@ -7,6 +7,7 @@ use Database\Seeders\RubricaSeeder;
 use Database\Seeders\CriterioSeeder;
 use Database\Seeders\CategoriaSeeder;
 use Database\Seeders\AtributoSeeder;
+use Database\Seeders\UserSeeder;
 
 use Illuminate\Database\Seeder;
 
@@ -22,6 +23,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RubricaSeeder::class,
             CriterioSeeder::class,
+            UserSeeder::class,
+            CategoriaSeeder::class,
+            AtributoSeeder::class,
         ]);
     }
 }
