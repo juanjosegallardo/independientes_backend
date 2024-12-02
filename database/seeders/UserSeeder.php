@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         $users =[
-            ["name"=> "Israel" ,"email"=>"admin", "password"=> Hash::make('qwerty123')]
+            ["name"=> "Israel" ,"email"=>"admin", "password"=> Hash::make('qwerty123'), "role"=>"ADMIN"]
         ];
         foreach ($users as $user)
         {
