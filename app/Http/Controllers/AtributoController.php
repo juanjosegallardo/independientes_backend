@@ -62,16 +62,20 @@ class AtributoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateAtributoRequest $request, Atributo $atributo)
+    public function update(Request $request, $id)
     {
-        //
+        $atributo = Atributo::findOrFail($id);
+        $atributo->nombre= $request->nombre;
+        $atributo->save();
+        return $atributo;
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Atributo $atributo)
+    public function destroy( $id)
     {
-        //
+        $atributo =  Atributo::findOrFail($id);
+        $atributo->delete();        
     }
 }

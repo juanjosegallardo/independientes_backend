@@ -63,16 +63,20 @@ class CriterioController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCriterioRequest $request, Criterio $criterio)
+    public function update(Request $request, $id)
     {
-        //
+        $criterio = Criterio::findOrFail($id);
+        $criterio->nombre =$request->nombre;
+        $criterio->save();
+        return $criterio;
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Criterio $criterio)
+    public function destroy($id)
     {
-        //
+        $criterio = Criterio::findOrFail($id);
+        $criterio->delete();
     }
 }

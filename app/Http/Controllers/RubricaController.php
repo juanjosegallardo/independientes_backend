@@ -53,9 +53,12 @@ class RubricaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateRubricaRequest $request, Rubrica $rubrica)
+    public function update(Request $request, $id)
     {
-        //
+        $rubrica = Rubrica::findOrFail($id);
+        $rubrica->nombre = $request->nombre;
+        $rubrica->save();
+        return $rubrica;
     }
 
     /**
