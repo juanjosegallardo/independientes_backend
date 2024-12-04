@@ -47,7 +47,9 @@ class CompetenciaController extends Controller
         return Competencia::with(["Rubrica"=>function($q){
             $q->with(["criterios"=>function($q){
                 $q->with("atributos");
-            }]);
+            }])->with("categorias");
+        }])->with(["evaluaciones"=>function($q){
+            $q->orderBy("puntuacion_final", "desc");
         }])->find($id);
     }
 

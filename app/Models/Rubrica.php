@@ -18,4 +18,6 @@ class Rubrica extends Model
     {
         return $this->hasMany("App\Models\Categoria");
     }
+
+    
 }

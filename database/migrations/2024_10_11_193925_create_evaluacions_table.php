@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("nombre");
             $table->string("auto");
             $table->string("marca");
-            $table->string("anio");
+            $table->integer("anio");
             $table->string("club");
             $table->integer("puntuacion_final");
             $table->foreignIdFor(User::class)->constrained();

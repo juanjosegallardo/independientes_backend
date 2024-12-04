@@ -8,7 +8,8 @@ use Database\Seeders\CriterioSeeder;
 use Database\Seeders\CategoriaSeeder;
 use Database\Seeders\AtributoSeeder;
 use Database\Seeders\UserSeeder;
-
+use Database\Seeders\CompetenciaSeeder;
+use Database\Seeders\EvaluacioSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -26,6 +27,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             CategoriaSeeder::class,
             AtributoSeeder::class,
+            CompetenciaSeeder::class,
+            EvaluacionSeeder::class,
         ]);
     }
 }

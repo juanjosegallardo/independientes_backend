@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Competencia extends Model
 {
     use HasFactory;
-
+    use SoftDeletes;
 
     public function rubrica()
     {
@@ -17,6 +18,6 @@ class Competencia extends Model
 
     public function evaluaciones()
     {
-        return $this->hasMany("App\Models\Evaluacion", );
+        return $this->hasMany("App\Models\Evaluacion");
     }
 }

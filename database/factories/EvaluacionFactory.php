@@ -14,10 +14,17 @@ class EvaluacionFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
+    public function definition()
     {
         return [
-            //
+            'nombre' => $this->faker->name(),
+            'auto' => $this->faker->word(),
+            'marca' => $this->faker->company(),
+            'anio' => $this->faker->year(),
+            'club' => $this->faker->word(),
+            'puntuacion_final' => $this->faker->numberBetween(0, 400),
+            'competencia_id' => $this->faker->numberBetween(1, 3), 
+            'user_id'=>1
         ];
     }
 }
