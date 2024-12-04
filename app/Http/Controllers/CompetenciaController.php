@@ -49,7 +49,7 @@ class CompetenciaController extends Controller
                 $q->with("atributos");
             }])->with("categorias");
         }])->with(["evaluaciones"=>function($q){
-            $q->orderBy("puntuacion_final", "desc");
+            $q->with("evaluador")->orderBy("puntuacion_final", "desc");
         }])->find($id);
     }
 

@@ -18,4 +18,10 @@ class Evaluacion extends Model
     {
         return $this->belongsToMany("App\Models\Atributo", "atributo_evaluacion")->withPivot("calificacion");
     }
+    public function Evaluador()
+    {
+        return $this->belongsTo("App\Models\User", "user_id");
+    }
+    
+
 }
