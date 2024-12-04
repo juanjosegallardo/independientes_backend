@@ -3,33 +3,37 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Faker\Factory as FakerFactory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Evaluacion>
- */
 class EvaluacionFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition()
     {
+        // Crea una instancia de Faker con el locale es_MX
+        $faker = FakerFactory::create('es_MX');
+
         $carBrands = [
             'Toyota', 'Ford', 'Chevrolet', 'Honda', 'Nissan',
             'BMW', 'Mercedes-Benz', 'Volkswagen', 'Hyundai',
             'Audi', 'Kia', 'Subaru', 'Mazda', 'Tesla'
         ];
 
+        $carClubs = [
+            'Club Mustang México', 'Autos Clásicos Guadalajara', 
+            'Vochomanía', 'Speed Demons CDMX', 
+            'Drift Monterrey', 'Bimmers Puebla', 
+            'Street Racing Querétaro', 'JDM Lovers GDL', 
+            'Car Culture Cancún', 'Old School Monterrey'
+        ];
+
         return [
-            'nombre' => $this->faker->name(),
-            'auto' => $this->faker->word(),
-            'marca' => $this->faker->randomElement($carBrands),
-            'anio' => $this->faker->year(),
-            'club' => $this->faker->word(),
-            'puntuacion_final' => $this->faker->numberBetween(0, 400),
-            'competencia_id' => $this->faker->numberBetween(1, 3), 
+            'nombre' => $faker->firstName . ' ' . $faker->lastName,
+            'auto' => $faker->word(),
+            'marca' => $faker->randomElement($carBrands),
+            'anio' => $faker->year(),
+            'club' => $faker->randomElement($carClubs),
+            'puntuacion_final' => $faker->numberBetween(0, 400),
+            'competencia_id' => $faker->numberBetween(1, 3),
             'user_id' => 1
         ];
     }
