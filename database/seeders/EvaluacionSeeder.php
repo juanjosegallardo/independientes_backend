@@ -13,7 +13,7 @@ class EvaluacionSeeder extends Seeder
      */
     public function run()
     {
-        Evaluacion::factory()->count(500)->create();
+        Evaluacion::factory()->count(100)->create();
     }
 
 }
