@@ -9,5 +9,9 @@ class Atributo extends Model
 {
     use HasFactory;
     protected $attributes = ["minimo"=>0, "maximo"=>5];
+    public function criterio()
+    {
+        return $this->belongsTo("App\Models\Criterio");
+    }
 
 }

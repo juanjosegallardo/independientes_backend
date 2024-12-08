@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Atributo::class)->constrained();
             $table->foreignIdFor(Evaluacion::class)->constrained("evaluaciones");
-            $table->integer("calificacion");
+            $table->integer("calificacion")->nullable();
             $table->timestamps();
         });
     }

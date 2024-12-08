@@ -14,6 +14,7 @@ Route::get('/pdfs/evaluaciones/{id}', [PDFController::class, 'generarPDF']);
 Route::get("/rubricas/{id}/criterios", [CriterioController::class,"obtenerPorRubrica"]);
 Route::get("/rubricas/{id}/categorias", [CategoriaController::class,"obtenerPorRubrica"]);
 Route::get("/criterios/{id}/atributos", [AtributoController::class,"obtenerPorCriterio"]);
+Route::post("/evaluaciones/{evalucacion_id}/atributos/{atributo_id}/", [EvaluacionController::class,"guardarCalificacion"]);
 Route::resource('/competencias',CompetenciaController::class);
 Route::resource('/rubricas',RubricaController::class);
 Route::resource('/criterios',CriterioController::class);

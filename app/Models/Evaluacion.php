@@ -10,9 +10,9 @@ class Evaluacion extends Model
     use HasFactory;
     protected $table= "evaluaciones";
     
-    public function Rubrica()
+    public function competencia()
     {
-        return $this->hasOne("App\Models\Rubrica");
+        return $this->belongsTo("App\Models\Competencia");
     }
     public function Atributos()
     {
