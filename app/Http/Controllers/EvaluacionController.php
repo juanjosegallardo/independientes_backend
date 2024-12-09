@@ -81,7 +81,12 @@ class EvaluacionController extends Controller
            
         });
 
-        return Evaluacion::with("atributos")->with(["competencia"=>function($q){
+        return Evaluacion::with(["atributos"=>function($q){
+            $q->leftJoin("criterios", "criterio_id","=", "criterios.id")
+            ->with("criterio")
+            ->orderBy("criterios.nombre", "asc")
+            ->orderBy("atributos.nombre","asc");
+        }])->with(["competencia"=>function($q){
             $q->with(["rubrica"=>function($q){
                 $q->with("criterios");
             }]);

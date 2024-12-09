@@ -32,7 +32,7 @@ class EvaluacionFactory extends Factory
             'marca' => $faker->randomElement($carBrands),
             'anio' => $faker->year(),
             'club' => $faker->randomElement($carClubs),
-            'puntuacion_final' => $faker->numberBetween(0, 400),
+            'puntuacion_final' => 0,
             'competencia_id' => $faker->numberBetween(1, 3),
             'user_id' => 1
         ];
