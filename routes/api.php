@@ -8,6 +8,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\AtributoController;
 use App\Http\Controllers\CriterioController;
 use App\Http\Controllers\EvaluacionController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\PDFController;
 
 Route::get('/pdfs/evaluaciones/{id}', [PDFController::class, 'generarPDF']);
@@ -21,6 +22,7 @@ Route::resource('/criterios',CriterioController::class);
 Route::resource('/atributos',AtributoController::class);
 Route::resource('/evaluaciones',EvaluacionController::class);
 Route::resource('/categorias',CategoriaController::class);
+Route::resource('/usuarios',UserController::class);
 Route::get('/competencias/{id}/evaluaciones',[CompetenciaController::class,"obtenerEvaluaciones"]);
 
 Route::post('login', [App\Http\Controllers\AuthController::class, 'login']);

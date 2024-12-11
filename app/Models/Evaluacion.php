@@ -20,8 +20,10 @@ class Evaluacion extends Model
     }
     public function Evaluador()
     {
-        return $this->belongsTo("App\Models\User", "user_id");
+        return $this->belongsTo("App\Models\User", "user_id")->withTrashed();
     }
+
+    
     
 
 }
