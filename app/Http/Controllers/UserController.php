@@ -71,4 +71,11 @@ class UserController extends Controller
         $user->delete();
         
     }
+
+    public function cambiarPassword(Request $request,$id)
+    {
+        $user = User::find($id);
+        $user->password =  Hash::make($request->password);
+        $user->update();
+    }
 }

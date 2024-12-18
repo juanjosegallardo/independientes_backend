@@ -68,7 +68,7 @@ class EvaluacionController extends Controller
             $evaluacion->marca = $request->marca;
             $evaluacion->anio = $request->anio;
             $evaluacion->puntuacion_final = 0;
-            $evaluacion->user_id =1;
+            $evaluacion->user_id = auth()->user()->id;
             $evaluacion->save();
 
         
